@@ -1429,7 +1429,7 @@ class Cursor(object):
                     raise self.messages[len(self.messages) - 1]
         except Exception as inst:
             self._set_rowcount()
-            self.messages.append(Error(inst))
+            self.messages.append(_get_exception(inst))
             raise self.messages[len(self.messages) - 1]
         return True
 
